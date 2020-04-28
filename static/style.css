@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+
+*,
+*::before,
+*::after{
+  margin:0;
+  padding:0;
+  border:0;
+  box-sizing: border-box;
+  font-family: 'Roboto';
+
+}
+
+body{
+  width:100vw;
+  height:100vh;
+  background-color: white;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#urlInput{
+  width:35vw;
+  min-width:200px;
+  max-width:500px;
+  height:50px;
+  background:transparent;
+  border-bottom:2px solid #00000033;
+  transition:all 0.2s;
+  color:#000000;
+  font-size: 40px;
+  margin:30px;
+  text-align: center;
+}
+
+#urlInput:focus{
+  outline:none;
+  border-bottom:2px solid #000000;
+}
+
+#urlInput::placeholder{
+  opacity:0.15;
+}
+
+#btnShorten{
+  color:white;
+  cursor: pointer;
+  width:75px;
+  height:40px;
+  background-color:#000000;
+  opacity:0.3;
+  transition: all 0.2s;
+  margin:30px;
+}
+
+#btnShorten:hover{
+  opacity:1;
+}
+
+#btnShorten:focus{
+  outline:none;
+}
+
+#btnCopy{
+  color:white;
+  cursor: not-allowed;
+  width:75px;
+  height:40px;
+  background-color:#000000;
+  opacity: 0.3;
+  margin:30px;
+}
+
+.btnCopyActive{
+  opacity: 1 !important;
+  cursor: pointer !important;
+}
+
+#resDisplay{
+  margin-top:100px;
+  border:none;
+  resize: none;
+  width:35vw;
+  min-width:200px;
+  max-width:500px;
+}
+
+#resDisplay:focus{
+  outline:0;
+}
+
+footer{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  height:40px;
+  background-color: #2d3436;
+  color:white;
+  text-align: center;
+  font-size: 25px;
+}
+
+footer a{
+  color:white;
+  text-decoration: none;
+}
+
+footer a:visited{
+  color:white;
+}
