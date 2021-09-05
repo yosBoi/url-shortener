@@ -1,14 +1,36 @@
 const urlInput = document.getElementById('urlInput');
+const shortUrl = document.getElementById('customUrlInput');
 const btnShorten = document.getElementById('btnShorten');
 const resDisplay = document.getElementById('resDisplay');
 
 const parentBody = document.querySelector('body');
 
+document.getElementById('urlPrefix').innerText = `${location.hostname}/`;
+
+const shortUrlChoices = document.querySelectorAll('input[type=radio][name=shortChoice]');
+shortUrlChoices.forEach(radio => {
+  radio.addEventListener('change', () => {
+    if(radio.value == 'custom'){
+      document.getElementById('customUrl').classList.add('showCustom');
+    }
+    else{
+      document.getElementById('customUrl').classList.remove('showCustom');
+    }
+  })
+})
+
 
 btnShorten.addEventListener('click', () => {
   
   let postData = {
-    "longUrl":`${urlInput.value}`
+    "longUrl":`${urlInput.value}`,
+    "shortUrl":`${shortUrl.value}`,
+    "urlType":`${document.querySelector('input[name="shortChoice"]:checked').value}`
+  }
+
+  if(postData.urlType == 'custom' && postData.shortUrl == ""){
+    alert("please give custom URL or set URL type to random");
+    return;
   }
 
   axios.post('/api/shorten', postData)
@@ -76,6 +98,7 @@ const copyToClipboard = () => {
   resDisplay.setSelectionRange(0, 99999); /*For mobile devices*/
 
   /* Copy the text inside the text field */
-  document.execCommand("copy");
+  //document.execCommand("copy");
+  navigator.clipboard.writeText(resDisplay.value);
 
 }
