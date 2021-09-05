@@ -12,6 +12,10 @@
 
 }
 
+*,*:focus,*:hover{
+  outline:none;
+}
+
 body{
   width:100vw;
   min-height:100vh;
@@ -51,6 +55,54 @@ body{
 
 #urlInput::placeholder{
   opacity:0.15;
+}
+
+#shortUrlChoices{
+  margin:20px;
+}
+
+input[type="radio"]{
+  margin:5px;
+}
+
+.shortChoice{
+  color:#000000;
+  opacity: 0.3;
+  cursor: pointer;
+  flex-direction: row;
+}
+
+input[type="radio"]:checked + label{
+  opacity: 1;
+}
+
+#customUrl{
+  margin: 10px 0;
+}
+
+
+#urlPrefix{
+  color: #000000;
+  opacity: 0.3;
+  display: inline-block;
+}
+
+#customUrl{
+  display:none;
+}
+
+#customUrlInput{
+  border-bottom: 2px solid #00000033;
+  display: inline-block;
+  transition: all 0.2s;
+}
+
+#customUrlInput:focus{
+  border-bottom: 2px solid #000000;
+}
+
+.showCustom{
+  display: block !important;
 }
 
 #btnShorten{

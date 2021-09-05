@@ -2,6 +2,11 @@ const express = require('express');
 const urlData = require('./models/urlData');
 const path = require('path');
 const mongoose = require('mongoose');
+
+if(process.env.NODE_ENV !== "production"){
+  require('dotenv').config();
+}
+
 const db = process.env.MONGO_URI      /*set env variable on server*/
 
 //connect to db
@@ -27,6 +32,7 @@ app.get('/go/:shortUrl', async (req, res) => {
 
   if(!urlRecord){
     res.status(404).send('Not found');
+    console.log("not found")
   }
 
   else{

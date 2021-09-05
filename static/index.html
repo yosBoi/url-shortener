@@ -10,6 +10,18 @@
 </head>
 <body>
     <input id="urlInput" name="urlInput" type="url" placeholder="Paste URL">
+
+    <div id="shortUrlChoices">
+    <input type="radio" name="shortChoice" value="random" id="randomChoice" checked><label for="randomChoice" class="shortChoice">Random URL</label>
+    <br>
+    <input type="radio" name="shortChoice" value="custom" id="customChoice"><label for="customChoice" class="shortChoice">Custom URL</label>
+    </div>
+
+    <div id="customUrl">
+    <p id="urlPrefix"></p>
+    <input id="customUrlInput">
+    </div>
+
     <button id="btnShorten">Shorten!</button>
     <textarea readonly id="resDisplay"></textarea>
     <button id="btnCopy">Copy</button>
